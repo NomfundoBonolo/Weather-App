@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nomfundo WeatherApp</title>
+</head>
+  <body>
+    <div class="container app-section">
+      <div class="row heading-section">
+        <div class="col-8"><h1>WeatherApp</h1></div>
+        <div class="col-2">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              ºC|ºF
+            </button>
+            <ul class="dropdown-menu">
+              <li id="temp-c"><a class="dropdown-item" href="#">ºC</a></li>
+              <li id="temp-f"><a class="dropdown-item" href="#">ºF</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2">
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            id="current-temp-button"
+          >
+            Current Temp
+          </button>
+        </div>
+      </div>
+
+      <form>
+        <input
+          type="search"
+          placeholder="Enter a city name"
+          class="form-control"
+          autocomplete="off"
+          autofocus="on"
+          id="city-name"
+        />
+        <input type="submit" value="Search" id="search-input" />
+      </form>
+
+      <div class="row present-stats">
+        <div class="col temperature">
+          <p>
+            <span id="temp-value">18</span>º<span class="temp-type">C</span>
+            <br />
+            <img
+              src="http://openweathermap.org/img/wn/10d@2x.png"
+              alt="weathericon"
+              id="icon"
+            />
+          </p>
+        </div>
+        <div class="col city-timetemp-info">
+          <h3>Midrand</h3>
+
+          <span class="tempdescription">Raining</span>
+          <br />
+          <p class="current-day">Mon , 12 March 2023</p>
+        </div>
+        <div class="col otherstats">
+          <ul>
+            <li>Humidity: <span class="Humidity">100</span></li>
+            <li>Wind: <span class="Wind">10</span>km/h</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="weather-forecast" id="forecast"></div>
+    </div>
+    <footer>
+      Coded by
+      <a href="https://www.shecodes.io/NomfundoDakile"> Nomfundo Dakile </a>
+      <br />
+
+      open-sourced at
+      <em>
+        <a
+          href="https://github.com/NomfundoBonolo/WeatherApp.git"
+          target="_blank"
+          >github
+        </a>
+      </em>
+    </footer>
+    <script src="src/index.js"></script>
+  </body>
+</html>
