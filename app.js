@@ -1,8 +1,14 @@
-      function addCurrentDay(ms) {
-        // event.preventDefault();
-        let todayDate = new Date(ms);
-
-        let days = [
+      function fixDate(date){
+            let hour= date.getHours();
+            if(hours<10) 0{
+               hour= '0${minutes}';
+            }
+            let minutes = date.getMinutes();
+            if (minutes < 10) {
+                minutes = '0${minutes}';
+            }
+            let dayIndex = date.getDay();
+          let days = [
           "Sunday",
           "Monday",
           "Tuesday",
@@ -11,7 +17,9 @@
           "Friday",
           "Saturday",
         ];
-
+let day = days[dayIndex];
+   return ${day} ${hours}:${minutes}';
+      }
         // let months = [
         //   "January",
         //   "February",
@@ -49,23 +57,31 @@
       function formatDay(timestamp) {
         let date = new Date(timestamp * 1000);
         let day = date.getDay();
-        let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        let days = ["Sunday", 
+                    "Monday", 
+                    "Tuesday", 
+                    "Wednesday",
+                    "Thursday", 
+                    "Friday", 
+                    "Saturday"];
 
         return days[day];
       }
 
       function displayForecast(response) {
         let forecastElement = document.querySelector("#forecast");
-
         let forecast = response.data.daily;
-
+        console.log(forecast);
         let forecastHTML = `<div class="row">`;
         forecast.forEach(function (forecastDay, index) {
           if (index < 6) {
-            forecastHTML =
-              forecastHTML +
-              `
-        <div class="col-2 dailystats">
+            forecastHTML = forecastHTML + '<div class="col">'<div>
+             <small>${formatDay(forecastDay.time)}</small>
+                
+           
+        <div class="days-emo">
+              <smaller>
+          <div class="col-2 dailystats">
           <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
           <img class="img" 
             src="http://openweathermap.org/img/wn/${
@@ -247,7 +263,7 @@
           dateElement.innerHTML = addCurrentDay(time);
         }
 
-        function showPos(position) {
+        function showPosition(position) {
           // console.log(position);
           let lat = position.coords.latitude;
           let lon = position.coords.longitude;
