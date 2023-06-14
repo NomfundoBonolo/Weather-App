@@ -20,40 +20,6 @@
 let day = days[dayIndex];
    return ${day} ${hours}:${minutes}';
       }
-        // let months = [
-        //   "January",
-        //   "February",
-        //   "March",
-        //   "April",
-        //   "May",
-        //   "June",
-        //   "July",
-        //   "August",
-        //   "September",
-        //   "october",
-        //   "November",
-        //   "December"
-        // ];
-
-        let day = days[todayDate.getDay()];
-
-        // let month = months[todayDate.getMonth()];
-        // let date = todayDate.getDate();
-        let hours = todayDate.getHours();
-        if (hours < 10) {
-          hours = `0${hours}`;
-        }
-        let minutes = todayDate.getMinutes();
-        if (minutes < 10) {
-          minutes = `0${minutes}`;
-        }
-
-        let p = document.querySelector(".current-day");
-        p.innerHTML = `Last updated: ${day} ${hours}:${minutes}`;
-        return `Last updated: ${day} ${hours}:${minutes}`;
-        // h4.innerHTML = `${day}, ${month} ${date}`;
-      }
-
       function formatDay(timestamp) {
         let date = new Date(timestamp * 1000);
         let day = date.getDay();
@@ -99,8 +65,7 @@ let day = days[dayIndex];
             )}</span><span>°</span> 
           </div>
         </div>
-    `;
-          }
+    `}
         });
 
         forecastHTML = forecastHTML + `</div>`;
@@ -115,7 +80,7 @@ let day = days[dayIndex];
         axios.get(apiUrl).then(displayForecast);
       }
 
-      function updateCitynametemp(event) {
+      function displayWeather(response) {
         event.preventDefault();
         let userCityInput = document.querySelector("#city-name");
         if (userCityInput.value) {
