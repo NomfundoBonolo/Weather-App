@@ -49,7 +49,7 @@ let day = days[dayIndex];
               <smaller>
           <div class="col-2 dailystats">
           <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-          <img class="img" 
+          <img
             src="http://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
             }@2x.png"
@@ -59,13 +59,14 @@ let day = days[dayIndex];
           <div class="weather-forecast-temperatures">
             <span class="weather-forecast-temperature-max forecast-temp">${Math.round(
               forecastDay.temp.max
-            )}</span><span>°</span> 
+            )}°</span> 
             <span class="weather-forecast-temperature-min forecast-temp">${Math.round(
               forecastDay.temp.min
-            )}</span><span>°</span> 
+            )}°</span> 
           </div>
         </div>
-    `}
+    `;
+    }
         });
 
         forecastHTML = forecastHTML + `</div>`;
@@ -74,7 +75,7 @@ let day = days[dayIndex];
       }
 
       function getForecast(coordinates) {
-        // console.log(coordinates);
+         console.log(coordinates);
         let apikey = "203fa770242fcd2b9555d832a88ea567";
         let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}&units=metric`;
         axios.get(apiUrl).then(displayForecast);
